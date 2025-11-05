@@ -8,13 +8,17 @@ class integer_distribution:
             pmf.update({i: 1 / self.k})
         return pmf
 
-    def cdf(self):
+    def cmf(self):
         cdf = {}
         cumulative = 0
         for i in range(self.k):
             cumulative += 1 / self.k
             cdf.update({i: cumulative})
         return cdf
+    
+    def mgf(self):
+        return f"(e^t(1-e^t{self.k}))/({self.k}(1-e^t)))"
+    
 
     def mean(self):
         return (self.k - 1) / 2

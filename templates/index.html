@@ -4,16 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>HTML + CSS</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}" />
+    <title>Distribution Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
   </head>
-    <body>
-    <label for="distros">Choose a distrobution:</label>
-    <select name="distros" id="distros">
-        <option value="Integer">Integer</option>
-        <option value="Bernoulli">Bernoulli</option>
-    </select>
-   <button id="enter">Click Me</button>
-   <p id="output"></p>
-    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
-        </body>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <h1 class="navbar-title">Distribution Visualizer</h1>
+      <a href="index.html" class="navbar-link">Home</a>
+    </nav>
+
+    <!-- Main content grid -->
+    <main class="container">
+      <!-- Input Section -->
+      <section id="input-section">
+        <label for="distros">Choose a distribution:</label>
+        <select name="distros" id="distros">
+          <option value="Integer">Integer</option>
+          <option value="Bernoulli">Bernoulli</option>
+        </select>
+
+        <label for="trials">Trials (n):</label>
+        <input id="trials" type="number" min="1" max="100" step="1" placeholder="Number of trials" />
+
+        <label for="success_rate">Success rate (p):</label>
+        <input id="success_rate" type="number" min="0" max="1" step="any" placeholder="Success probability (0–1)" />
+
+        <button id="enter" type="button">Generate</button>
+      </section>
+
+      <!-- Data Display -->
+      <section id="data-display">
+        <p id="mean">Mean:</p>
+        <p id="variance">Variance:</p>
+        <p id="standard_deviation">Standard Deviation:</p>
+        <p id="moment_generating_function">Moment Generating Function:</p>
+      </section>
+
+      <!-- PMF Chart -->
+      <section class="chart-container">
+        <h2>Probability Mass Function (PMF)</h2>
+        <canvas id="pmf" width="400" height="200"></canvas>
+      </section>
+
+      <!-- CDF Chart -->
+      <section class="chart-container">
+        <h2>Cumulative Mass Function (CMF)</h2>
+        <canvas id="cmf" width="400" height="200"></canvas>
+      </section>
+    </main>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js"></script>
+    <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>

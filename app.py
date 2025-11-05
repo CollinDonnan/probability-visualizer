@@ -10,11 +10,8 @@ def home():
 
     return render_template('index.html')
 
-@app.route('/<distro>/<float:n>', methods=['GET', 'POST'])
-@app.route('/<distro>/<n>', methods=['GET', 'POST'])
-def stats(distro, n):
-    # accept numeric strings like ".5" by parsing here
-    print(distro, n)
+@app.route('/<distro>/<float:n>/<int:trials>', methods=['GET', 'POST'])
+def stats(distro, n, trials):
     try:
         n_val = float(n)
     except (TypeError, ValueError):
@@ -22,15 +19,14 @@ def stats(distro, n):
 
     if distro == "bernoulli":
         dist = bernoulli_distro.bernoulli_distribution(n_val)
-        return jsonify({"pmf": dist.pmf(), "mean": dist.mean(), "variance": dist.variance(), "stddev": dist.stddev(), "mgf": dist.mgf(), "cdf": dist.cdf()})
+        return jsonify({"pmf": dist.pmf(), "mean": dist.mean(), "variance": dist.variance(), "stddev": dist.stddev(), "mgf": dist.mgf(), "cmf": dist.cmf()})
     elif distro == "integer":
-        # allow integer strings or floats that represent integers
         try:
-            idx = int(float(n))
+            idx = int(trials)
         except (TypeError, ValueError):
             return jsonify({"error": "invalid integer value"}), 400
         dist = integer_distrobution.integer_distribution(idx)
-        return jsonify({"pmf": dist.pmf(), "mean": dist.mean(), "variance": dist.variance(), "stddev": dist.stddev(), "cdf": dist.cdf()})
+        return jsonify({"pmf": dist.pmf(), "mean": dist.mean(), "variance": dist.variance(), "stddev": dist.stddev(), "cmf": dist.cmf(), "mgf": dist.mgf()})
     return jsonify({"error": "unknown distribution"}), 404
 if __name__ == "__main__":
     app.run(debug=True)

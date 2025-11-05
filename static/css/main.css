@@ -1,0 +1,134 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  width: 100%;
+  background: linear-gradient(90deg, #3f51b5, #5c6bc0);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-title {
+  font-size: 1.3rem;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.navbar-link:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* ===== Layout Grid ===== */
+body {
+  background-color: #f4f6fc;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== Input Section ===== */
+#input-section {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+#input-section label {
+  font-weight: 600;
+  color: #333;
+}
+
+#input-section input,
+#input-section select {
+  width: 180px;
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+#input-section button {
+  margin-top: 8px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+#input-section button:hover {
+  background-color: #303f9f;
+}
+
+/* ===== Data Display ===== */
+#data-display {
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#data-display p {
+  margin-bottom: 6px;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+/* ===== Chart Sections ===== */
+.chart-container {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h2 {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}

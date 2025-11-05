@@ -21,5 +21,5 @@ class bernoulli_distribution:
         # Moment Generating Function for Bernoulli distribution
         return f"(1 - {self.success_rate}) + {self.success_rate} * exp(t)"
 
-    def cdf(self):
+    def cmf(self):
         return {0: 1 - self.success_rate, 1: 1}
