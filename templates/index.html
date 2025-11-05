@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}" />
   </head>
     <body>
-    <label for="fruits">Choose a fruit:</label>
-    <select name="fruits" id="fruits">
-        <option value="Integer">Apple</option>
-        <option value=""></option>
+    <label for="distros">Choose a distrobution:</label>
+    <select name="distros" id="distros">
+        <option value="Integer">Integer</option>
+        <option value="Bernoulli">Bernoulli</option>
     </select>
    <button id="enter">Click Me</button>
+   <p id="output"></p>
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
         </body>
