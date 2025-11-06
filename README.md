@@ -1,7 +1,6 @@
-# stats-distro
+# 📊 stats-distro
 
-A full stack flask web application that analyizes and visualizes probability distributions. Users can enter a success rate, number of trials and select a distribution. The app will calculate the mean, variance, standard deveation, and the moment generating function, and graph the probability mass function and the cumulative mass function.
-
+**Stats-Distro**
 # Tech Stack
 
 Backend - Flask
