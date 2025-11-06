@@ -1,40 +1,48 @@
 # 📊 stats-distro
 
-**Stats-Distro**
-# Tech Stack
+**Stats-Distro** is a full-stack Flask web app that calculates and visualizes common probability distributions.  
+It computes key statistical properties — mean, variance, standard deviation, and the moment-generating function (MGF) — while interactively plotting each distribution’s PMF and CDF using Chart.js.
 
-Backend - Flask
+---
 
-Frontend - CSS, HTML, JavaScipt, Jinja, Chart.js
+## ⚙️ Tech Stack
 
-Build System - uv
+- **Backend:** Flask (Python)  
+- **Frontend:** HTML, CSS, JavaScript, Chart.js  
+- **Templates:** Jinja2  
+- **Math Engine:** Custom Python functions (no external stats libraries)  
+- **CI:** GitHub Actions, `uv`, `ty`, `ruff`
 
-CI - Github Actions, uv, ty, ruff
+---
 
-# Dependancies
+## 🧩 How It Works
 
-- Python 3.12+
-- Pip 25.2+
+1. Choose a distribution  
+2. Enter the required parameters  
+3. Click **Generate**  
+4. The app:
+   - Computes the mean, variance, standard deviation, and MGF  
+   - Displays the PMF and CDF interactively
 
-# Installation
+---
 
-1. git clone https://github.com/CollinDonnan/stats-distro.git
+## 🧮 Supported Distributions
 
-2. pip install uv
+Currently, the app supports **Bernoulli**, **Binomial**, and **Integer** distributions.  
+More distributions are planned in future releases.
 
-3. uv sync
+---
 
-4. cd stats-distro
+## 🚀 Installation
 
-5. python3 app.py
+### Requirements
+- Python **3.12+**  
+- Pip **25.2+**
 
-
-# Supports
-
-Currently this app supports the Bernoulli, binomial, and intetger distributions
-
-# Features
-
-- Computes mean, variance, standard deveation, and moment generating functions
-
-- Plots pmfs and cdfs
+### Setup
+```bash
+git clone https://github.com/CollinDonnan/stats-distro.git
+cd stats-distro
+pip install uv
+uv sync
+python3 app.py
