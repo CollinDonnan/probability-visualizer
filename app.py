@@ -22,11 +22,11 @@ def stats(distro, n, trials):
         return jsonify({"error": "invalid numeric value"}), 400
     if distro == "bernoulli":
         dist = bernoulli_distro.bernoulli_distribution(n_val)
-        return jsonify({"pmf": dist.pmf(), "mean": dist.mean(), "variance": dist.variance(), "stddev": dist.stddev(), "mgf": dist.mgf(), "cmf": dist.cmf()})
+        return jsonify({"pmf": dist.pmf(), "mean": dist.mean(), "variance": dist.variance(), "stddev": dist.stddev(), "mgf": dist.mgf(), "cmf": dist.cdf()})
     elif distro == "integer":
         idx = int(trials)
         dist = integer_distrobution.integer_distribution(idx)
-        return jsonify({"pmf": dist.pmf(), "mean": dist.mean(), "variance": dist.variance(), "stddev": dist.stddev(), "cmf": dist.cmf(), "mgf": dist.mgf()})
+        return jsonify({"pmf": dist.pmf(), "mean": dist.mean(), "variance": dist.variance(), "stddev": dist.stddev(), "cdf": dist.cdf(), "mgf": dist.mgf()})
     return jsonify({"error": "unknown distribution"}), 404
 if __name__ == "__main__":
     app.run(debug=True)

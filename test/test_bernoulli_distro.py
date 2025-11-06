@@ -37,10 +37,10 @@ def test_mgf():
     expected_str = "(1 - 0.5) + 0.5 * exp(t)"
     assert b.mgf() == expected_str
 
-def test_cmf():
+def test_cdf():
     b = bernoulli_distro.bernoulli_distribution(0.8)
     expected = {0: 0.2, 1: 1.0}
-    actual = b.cmf()
+    actual = b.cdf()
     assert actual[0] == pytest.approx(expected[0])
     assert actual[1] == pytest.approx(expected[1])
 
