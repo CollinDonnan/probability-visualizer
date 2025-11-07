@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify
 from ThereomGrimiore.discreate_distros import bernoulli_distro
 import ThereomGrimiore.discreate_distros.integer_distrobution as integer_distrobution
 from ThereomGrimiore.discreate_distros.binomial_distro import binomial_distribution
-
+from ThereomGrimiore.discreate_distros.geometric_distro import geometric_distribution
 app = Flask(__name__)
 
 @app.route('/')
@@ -13,6 +13,10 @@ def home():
 @app.route('/<distro>/<float:n>/<int:trials>', methods=['GET', 'POST'])
 def stats(distro, n, trials):
     n = round(n,5)
+
+    if distro == "geometric":
+        dist = geometric_distribution(trials, n)
+        return jsonify({"pmf": dist.pmf(), "mean": dist.mean(), "variance": dist.variance(), "stddev": dist.stddev(), "mgf": dist.mgf(), "cdf": dist.cdf()})
     if distro == "binomial":
         dist  = binomial_distribution(trials, n)
         return jsonify({"pmf": dist.pmf(), "mean": dist.mean(), "variance": dist.variance(), "stddev": dist.stddev(), "mgf": dist.mgf(), "cdf": dist.cdf()})
