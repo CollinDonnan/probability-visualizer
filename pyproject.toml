@@ -2,7 +2,8 @@
 name = "stats-distro"
 version = "0.1.0"
 description = "Add your description here"
-readme = "README.md"
+readme = "Stats Distro is a full-stack Flask web app that calculates and visualizes common probability distributions.
+It computes key statistical properties — mean, variance, standard deviation, and the moment-generating function (MGF) — while interactively plotting each distribution’s PMF and CDF using Chart.js."
 requires-python = ">=3.13"
 dependencies = [
     "flask>=3.1.2",
