@@ -1,18 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const enter = document.getElementById("enter");
-  const distros = document.getElementById("distros");
-  const trialsEl = document.getElementById("trials");
-  const probEl = document.getElementById("success_rate");
-
-  const mean = document.getElementById("mean");
-  const variance = document.getElementById("variance");
-  const stddev = document.getElementById("standard_deviation");
-  const mgf = document.getElementById("moment_generating_function");
+  enter = document.getElementById("enter");
+ distros = document.getElementById("distros");
+ trialsEl = document.getElementById("trials");
+ probEl = document.getElementById("success_rate");
+ mean = document.getElementById("mean");
+ variance = document.getElementById("variance");
+ stddev = document.getElementById("standard_deviation");
+ mgf = document.getElementById("moment_generating_function");
   const pmfCanvas = document.getElementById("pmf");
   const cdfCanvas = document.getElementById("cmf");
 
   let pmfChart = null;
   let cdfChart = null;
+
+
+const distributionInputs = document.getElementById('distributionInputs');
+
+function updateInputs() {
+  const selectedValue = distros.value;
+
+  if (selectedValue === "Integer") {
+    distributionInputs.innerHTML = `
+      <label for="trials">Trials (n):</label>
+      <input id="trials" type="number" min="1" max="100" step="1" placeholder="Number of trials" value="1" />
+    `;
+  } else if (selectedValue === "Bernoulli") {
+    distributionInputs.innerHTML = `
+      <label for="success_rate">Success rate (p):</label>
+      <input id="success_rate" type="number" min="0" max="1" step="0.01" placeholder="Success probability (0–1)" value="0.5" />
+    `;
+  } else if(selectedValue === "Geometric"){
+        distributionInputs.innerHTML = `
+      <label for="trials">Trials (n):</label>
+      <input id="trials" type="number" min="1" max="100" step="1" placeholder="Number of trials" value="1" />
+            <label for="success_rate">Success rate (p):</label>
+      <input id="success_rate" type="number" min="0" max="1" step="0.01" placeholder="Success probability (0–1)" value="0.5" />
+    `;
+
+  } else if(selectedValue === "Binomial"){
+            distributionInputs.innerHTML = `
+      <label for="trials">Trials (n):</label>
+      <input id="trials" type="number" min="1" max="100" step="1" placeholder="Number of trials" value="1" />
+            <label for="success_rate">Success rate (p):</label>
+      <input id="success_rate" type="number" min="0" max="1" step="0.01" placeholder="Success probability (0–1)" value="0.5" />
+    `;
+  }
+   else {
+    distributionInputs.innerHTML = ''; // for other distributions
+  }
+   trialsEl = document.getElementById("trials");
+ probEl = document.getElementById("success_rate");
+   enter = document.getElementById("enter");
+ console.log(trials)
+ console.log(probEl)
+}
+
+// Initial load
+updateInputs();
+
+// Update inputs when selection changes
+distros.addEventListener('change', updateInputs);
 
   enter.addEventListener("click", async (e) => {
     e.preventDefault();

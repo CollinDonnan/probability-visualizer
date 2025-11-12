@@ -22,17 +22,16 @@
         <select name="distros" id="distros">
           <option value="Integer">Integer</option>
           <option value="Bernoulli">Bernoulli</option>
-          <option value="Binomial">Binomoial</option>
+          <option value="Binomial">Binomial</option>
           <option value="Geometric">Geometric</option>
         </select>
 
-        <span>*note success rate will be ignored for an integer distribution and trials will be ingorned for a bernoilli distribution</span>
-
-        <label for="trials">Trials (n):</label>
-        <input id="trials" type="number" min="1" max="100" step="1" placeholder="Number of trials", value="1" />
-
-        <label for="success_rate">Success rate (p):</label>
-        <input id="success_rate" type="number" min="0" max="1" step="any" placeholder="Success probability (0–1)", value=".5" />
+        <!-- Dynamic inputs appear here -->
+        <div id="distributionInputs">
+          <!-- Default: Integer -->
+          <label for="trials">Trials (n):</label>
+          <input id="trials" type="number" min="1" max="100" step="1" placeholder="Number of trials" value="1" />
+        </div>
 
         <button id="enter" type="button">Generate</button>
       </section>
