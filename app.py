@@ -9,8 +9,8 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/binomial/<int:trials>', methods=['GET', 'POST'])
-def stats(distro, n, trials):
+@app.route('/integer/<int:trials>', methods=['GET', 'POST'])
+def integer(distro, n, trials):
     n = round(n,5)
     try: 
         if distro == "integer":
@@ -21,7 +21,7 @@ def stats(distro, n, trials):
         return jsonify({"error": str(e)}), 400
 
 @app.route('/geometric/<float:n>/<int:trials>', methods=['GET', 'POST'])
-def stats(distro, n, trials):
+def geometric(distro, n, trials):
     n = round(n,5)
     try:
         if distro == "geometric":
@@ -31,7 +31,7 @@ def stats(distro, n, trials):
         return jsonify({"error": str(e)}), 400
 
 @app.route('/binomial/<float:n>/<int:trials>', methods=['GET', 'POST'])
-def stats(distro, n, trials):
+def binomial(distro, n, trials):
     n = round(n,5)
     try:
 
@@ -43,7 +43,7 @@ def stats(distro, n, trials):
     
 
 @app.route('/bernoulli/<float:n>', methods=['GET', 'POST'])
-def stats(distro, n, trials):
+def bernoulli(distro, n, trials):
     n = round(n,5)
     try:
         if distro == "bernoulli":
