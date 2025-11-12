@@ -16,7 +16,7 @@ jobs:
         - name: Install dependancies
           run: uv sync --all-extras
         - name: Test
-          run: uv run pytest
+          run: PYTHONPATH=. uv run pytest
         - name: Lint with ruff
           run: uv run ruff check
         - name: Format
