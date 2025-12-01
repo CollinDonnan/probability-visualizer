@@ -1,7 +1,7 @@
-# 📊 StatsDistro
+# 📊 Probability Visualizer
 
-**Stats Distro** is a full-stack Flask web app that calculates and visualizes common probability distributions.  
-It computes key statistical properties — mean, variance, standard deviation, and the moment-generating function (MGF) — while interactively plotting each distribution’s PMF and CDF using Chart.js. This project is deployed at http://my-env.eba-ufcxb3ib.us-east-2.elasticbeanstalk.com/
+A full-stack Flask web app that calculates and visualizes common probability distributions.  
+It computes key statistical properties — mean, variance, standard deviation, and the moment-generating function (MGF) — while interactively plotting each distribution’s PMF and CDF using Chart.js. This project to is deployed at http://my-env.eba-ufcxb3ib.us-east-2.elasticbeanstalk.com/
 
 ---
 
