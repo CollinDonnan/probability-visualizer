@@ -1,3 +1,4 @@
+![image]({ 	https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white})
 # 📊 Probability Visualizer
 
 A full-stack Flask web app that calculates and visualizes common probability distributions.  
